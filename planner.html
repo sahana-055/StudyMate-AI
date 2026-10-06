@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Study Planner — StudyMate AI</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="index.html"><span class="brand-mark">S</span> StudyMate AI</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="planner.html" aria-current="page">Planner</a>
+            <a href="progress.html">Progress</a><a href="focus.html">Focus</a><a href="resources.html">Resources</a><a href="settings.html">Settings</a>
+        </div>
+    </nav>
+    <main class="container">
+        <header class="page-heading">
+            <p class="eyebrow">Adaptive planning</p><h1>Study planner</h1>
+            <p>Plan around your exam dates, confidence, and available time—not just a checklist.</p>
+        </header>
+        <section class="card overload-card" id="workload-status" aria-live="polite"></section>
+        <section class="card form-card section-spaced" aria-labelledby="task-form-heading">
+            <div class="section-title section-title-compact">
+                <div><p class="eyebrow">Add a focused next step</p><h2 id="task-form-heading">Create a study task</h2></div>
+                <button class="btn btn-secondary" type="button" id="generate-schedule">Build adaptive schedule</button>
+            </div>
+            <form id="task-form">
+                <input type="hidden" name="taskId" id="task-id">
+                <div class="form-grid">
+                    <div><label for="task-subject">Subject</label><input id="task-subject" name="subject" list="subject-options" placeholder="e.g. Biology" required><datalist id="subject-options"></datalist></div>
+                    <div><label for="task-topic">Topic</label><input id="task-topic" name="topic" placeholder="e.g. Cell division" required></div>
+                    <div><label for="task-date">Study date</label><input id="task-date" name="date" type="date" required></div>
+                    <div><label for="task-exam">Exam date</label><input id="task-exam" name="examDate" type="date"></div>
+                    <div><label for="task-type">Task type</label><select id="task-type" name="type"><option>Learn</option><option>Practice</option><option>Revision</option><option>Mock Test</option></select></div>
+                    <div><label for="task-difficulty">Difficulty</label><select id="task-difficulty" name="difficulty"><option value="1">Easy</option><option value="2" selected>Moderate</option><option value="3">Hard</option></select></div>
+                    <div><label for="task-confidence">Confidence</label><select id="task-confidence" name="confidence"><option value="1">Low</option><option value="2" selected>Some</option><option value="3">High</option></select></div>
+                    <div><label for="task-priority">Priority</label><select id="task-priority" name="priority"><option>High</option><option selected>Medium</option><option>Low</option></select></div>
+                    <div><label for="task-duration">Estimated minutes</label><input id="task-duration" name="duration" type="number" min="10" max="240" step="5" value="45" required></div>
+                </div>
+                <div class="form-actions"><button class="btn" type="submit" id="save-task">Add task</button><button class="btn btn-secondary" type="button" id="cancel-edit" hidden>Cancel edit</button></div>
+            </form>
+            <p id="planner-message" class="inline-message" aria-live="polite"></p>
+        </section>
+        <section class="section-spaced">
+            <div class="section-title"><div><p class="eyebrow">Your adaptive schedule</p><h2>Upcoming study tasks</h2></div><div class="filter-row"><label class="visually-hidden" for="task-filter">Filter tasks</label><select id="task-filter"><option value="all">All tasks</option><option value="pending">Pending</option><option value="completed">Completed</option></select></div></div>
+            <div id="planner-task-list" class="stack-list"></div>
+        </section>
+        <section class="section-spaced">
+            <div class="section-title"><div><p class="eyebrow">Spaced repetition</p><h2>Revision queue</h2></div></div>
+            <div id="revision-list" class="stack-list"></div>
+        </section>
+    </main>
+    <footer class="footer">StudyMate AI · A schedule that adapts when real life happens.</footer>
+    <script src="script.js"></script>
+</body>
+</html>

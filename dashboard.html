@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard — StudyMate AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="index.html"><span class="brand-mark">S</span> StudyMate AI</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a><a href="dashboard.html" aria-current="page">Dashboard</a>
+            <a href="planner.html">Planner</a><a href="progress.html">Progress</a>
+            <a href="focus.html">Focus</a><a href="resources.html">Resources</a><a href="settings.html">Settings</a>
+        </div>
+    </nav>
+    <main class="container dashboard">
+        <header class="page-heading dashboard-heading">
+            <div><p class="eyebrow">Your academic decision assistant</p><h1 id="greeting">Your study day</h1>
+                <p id="dashboard-subtitle">A clearer next step starts with your study profile.</p></div>
+            <a class="btn btn-secondary" href="settings.html">Set up profile</a>
+        </header>
+
+        <section class="card brief-card">
+            <div class="section-title section-title-compact">
+                <div><p class="eyebrow">Personalized for today</p><h2>Today's Study Brief</h2></div>
+                <span class="badge" id="brief-hours">0 hours planned</span>
+            </div>
+            <div id="daily-brief" class="brief-grid"></div>
+        </section>
+
+        <section class="recommendation-banner" aria-labelledby="recommendation-heading">
+            <div>
+                <p class="eyebrow">Your next best step</p><h2 id="recommendation-heading">What should I study now?</h2>
+                <p id="recommendation-copy">Add a subject, quiz, or task to get a recommendation based on your academic data.</p>
+            </div>
+            <button class="btn btn-light" id="recommend-now" type="button">Get my recommendation <span aria-hidden="true">→</span></button>
+            <div class="recommendation-result" id="recommendation-result" aria-live="polite" hidden></div>
+        </section>
+
+        <div class="dashboard-columns">
+            <section class="card" aria-labelledby="exam-heading">
+                <div class="section-title section-title-compact"><h2 id="exam-heading">Exam readiness</h2><a href="settings.html">Manage subjects</a></div>
+                <div id="readiness-list" class="stack-list"></div>
+            </section>
+            <section class="card" aria-labelledby="notifications-heading">
+                <div class="section-title section-title-compact"><h2 id="notifications-heading">Study alerts</h2><div class="list-item-actions"><span id="alert-count" class="badge">0 new</span><button class="small-button" id="mark-alerts-read" type="button">Mark read</button></div></div>
+                <div id="notification-list" class="stack-list"></div>
+            </section>
+        </div>
+
+        <div class="dashboard-columns">
+            <section class="card" aria-labelledby="tasks-heading">
+                <div class="section-title section-title-compact"><h2 id="tasks-heading">Today's tasks</h2><a href="planner.html">Open planner →</a></div>
+                <div id="today-task-list" class="stack-list"></div>
+            </section>
+            <section class="card" aria-labelledby="weak-heading">
+                <div class="section-title section-title-compact"><h2 id="weak-heading">Topics needing attention</h2><a href="progress.html">Record a quiz</a></div>
+                <div id="weak-topic-list" class="stack-list"></div>
+            </section>
+        </div>
+
+        <section class="card" aria-labelledby="coach-heading">
+            <div class="section-title section-title-compact"><div><p class="eyebrow">Rule-based coach</p><h2 id="coach-heading">Ask your Study Coach</h2></div></div>
+            <div class="coach-questions">
+                <button class="chip" data-coach-question="attention" type="button">Which subject needs attention?</button>
+                <button class="chip" data-coach-question="readiness" type="button">Am I ready for my exam?</button>
+                <button class="chip" data-coach-question="revision" type="button">What should I revise today?</button>
+                <button class="chip" data-coach-question="behind" type="button">Why am I falling behind?</button>
+                <button class="chip" data-coach-question="tomorrow" type="button">Plan tomorrow for me</button>
+            </div>
+            <p id="coach-answer" class="coach-answer" aria-live="polite">Answers use your saved subjects, tasks, quiz results, and study sessions. No AI service is connected.</p>
+        </section>
+
+        <div class="dashboard-columns">
+            <section class="card" aria-labelledby="analytics-heading">
+                <div class="section-title section-title-compact"><h2 id="analytics-heading">This week's study</h2><a href="progress.html">All analytics →</a></div>
+                <div id="weekly-analytics" class="stack-list"></div>
+            </section>
+            <section class="card" aria-labelledby="streak-heading">
+                <div class="section-title section-title-compact"><h2 id="streak-heading">Consistency &amp; milestones</h2><a href="focus.html">Start a focus session →</a></div>
+                <div id="achievement-list" class="achievement-list"></div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">StudyMate AI · Thoughtful next steps, powered by your own study data.</footer>
+    <script src="script.js"></script>
+</body>
+</html>

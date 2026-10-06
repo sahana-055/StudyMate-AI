@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile &amp; settings — StudyMate AI</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="index.html"><span class="brand-mark">S</span> StudyMate AI</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="planner.html">Planner</a>
+            <a href="progress.html">Progress</a><a href="focus.html">Focus</a><a href="resources.html">Resources</a><a href="settings.html" aria-current="page">Settings</a>
+        </div>
+    </nav>
+    <main class="container">
+        <header class="page-heading"><p class="eyebrow">Personalize your study companion</p><h1>Profile &amp; settings</h1><p>Your profile helps the local study coach make more useful recommendations. No account is needed.</p></header>
+        <section class="card form-card" aria-labelledby="profile-heading">
+            <p class="eyebrow">Your study context</p><h2 id="profile-heading">Student profile</h2>
+            <form id="profile-form">
+                <div class="form-grid">
+                    <div><label for="profile-name">Name</label><input id="profile-name" name="name" autocomplete="name" placeholder="Your name"></div>
+                    <div><label for="profile-course">Course or degree</label><input id="profile-course" name="course" placeholder="e.g. Computer Science"></div>
+                    <div><label for="profile-year">Year</label><input id="profile-year" name="year" placeholder="e.g. 2nd year"></div>
+                    <div><label for="profile-hours">Available study hours per day</label><input id="profile-hours" name="availableHours" type="number" min="0.5" max="16" step="0.5" placeholder="e.g. 3" required></div>
+                    <div><label for="profile-time">Preferred study time</label><select id="profile-time" name="preferredTime"><option value="">No preference</option><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Night</option></select></div>
+                    <div><label for="profile-weekly-goal">Weekly study goal (hours, optional)</label><input id="profile-weekly-goal" name="weeklyGoal" type="number" min="1" max="100" placeholder="Set a goal if useful"></div>
+                </div>
+                <button class="btn" type="submit">Save profile</button>
+            </form><p id="profile-message" class="inline-message" aria-live="polite"></p>
+        </section>
+        <section class="card form-card section-spaced" aria-labelledby="subjects-heading">
+            <p class="eyebrow">Set exam dates and confidence</p><h2 id="subjects-heading">Subjects</h2>
+            <form id="subject-form">
+                <input id="subject-id" name="subjectId" type="hidden">
+                <div class="form-grid">
+                    <div><label for="subject-name">Subject</label><input id="subject-name" name="name" placeholder="e.g. Database Systems" required></div>
+                    <div><label for="subject-exam">Exam date</label><input id="subject-exam" name="examDate" type="date"></div>
+                    <div><label for="subject-confidence">Current confidence</label><select id="subject-confidence" name="confidence"><option value="1">Low</option><option value="2" selected>Some</option><option value="3">High</option></select></div>
+                </div>
+                <div class="form-actions"><button class="btn" id="save-subject" type="submit">Add subject</button><button class="btn btn-secondary" id="cancel-subject-edit" type="button" hidden>Cancel edit</button></div>
+            </form><div id="subject-list" class="stack-list section-spaced"></div>
+        </section>
+        <section class="card section-spaced" aria-labelledby="appearance-heading">
+            <p class="eyebrow">Make it yours</p><h2 id="appearance-heading">Appearance</h2>
+            <div class="settings-actions"><button class="btn" id="light-mode" type="button">☀ Light mode</button><button class="btn btn-secondary" id="dark-mode" type="button">☾ Dark mode</button></div>
+        </section>
+        <section class="card section-spaced" aria-labelledby="backup-heading">
+            <p class="eyebrow">Your data stays on this device</p><h2 id="backup-heading">Backup &amp; restore</h2>
+            <p class="muted">Export a JSON backup or import one you previously saved.</p>
+            <div class="settings-actions"><button class="btn btn-secondary" id="export-data" type="button">Export study data</button><label class="btn btn-secondary file-button" for="import-data">Import study data</label><input id="import-data" type="file" accept="application/json,.json" hidden></div>
+            <p id="data-message" class="inline-message" aria-live="polite"></p>
+        </section>
+        <section class="card section-spaced" aria-labelledby="clear-heading">
+            <p class="eyebrow">This cannot be undone</p><h2 id="clear-heading">Clear all study data</h2>
+            <p class="muted">Remove your profile, subjects, tasks, quiz results, sessions, and preferences from this browser.</p>
+            <button class="btn btn-danger" id="reset-data" type="button">Clear all data</button>
+        </section>
+    </main>
+    <footer class="footer">StudyMate AI · Your data stays in your browser unless you export it.</footer>
+    <script src="script.js"></script>
+</body>
+</html>

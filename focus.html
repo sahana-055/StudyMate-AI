@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Focus session — StudyMate AI</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="index.html"><span class="brand-mark">S</span> StudyMate AI</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="planner.html">Planner</a>
+            <a href="progress.html">Progress</a><a href="focus.html" aria-current="page">Focus</a><a href="resources.html">Resources</a><a href="settings.html">Settings</a>
+        </div>
+    </nav>
+    <main class="container">
+        <header class="page-heading"><p class="eyebrow">Make space for deep work</p><h1>Focus session</h1><p>Choose a study target, settle in, and give it your full attention.</p></header>
+        <section class="focus-layout">
+            <div class="card focus-card">
+                <div class="timer-modes" role="group" aria-label="Focus timer mode">
+                    <button class="chip is-active" type="button" data-minutes="25" data-break="5">Pomodoro · 25/5</button>
+                    <button class="chip" type="button" data-minutes="50" data-break="10">Deep work · 50/10</button>
+                    <label class="custom-time">Custom minutes <input id="custom-minutes" type="number" min="1" max="180" value="25"></label>
+                </div>
+                <div class="timer-face" id="timer-display" aria-live="off">25:00</div>
+                <p id="timer-status" class="muted">Ready when you are.</p>
+                <div class="timer-controls">
+                    <button class="btn" id="timer-start" type="button">Start focus</button>
+                    <button class="btn btn-secondary" id="timer-pause" type="button" disabled>Pause</button>
+                    <button class="btn btn-secondary" id="timer-complete" type="button">Complete session</button>
+                    <button class="btn btn-secondary" id="start-break" type="button" hidden>Start break</button>
+                </div>
+                <p id="focus-message" class="inline-message" aria-live="polite"></p>
+            </div>
+            <aside class="card">
+                <p class="eyebrow">Set your intention</p><h2>What are you working on?</h2>
+                <label for="focus-task">Choose a pending task</label><select id="focus-task"><option value="">Choose or enter a topic below</option></select>
+                <label for="focus-subject">Subject</label><input id="focus-subject" placeholder="e.g. Database systems">
+                <label for="focus-topic">Topic</label><input id="focus-topic" placeholder="e.g. Normalization">
+                <p class="muted">Your completed focus time updates study analytics and your consistency record.</p>
+            </aside>
+        </section>
+        <section class="card section-spaced" id="understanding-panel" hidden>
+            <p class="eyebrow">Session reflection</p><h2>How well did you understand this topic?</h2>
+            <div class="understanding-options">
+                <button class="chip" data-understanding="1" type="button">Very difficult</button><button class="chip" data-understanding="2" type="button">Difficult</button>
+                <button class="chip" data-understanding="3" type="button">Average</button><button class="chip" data-understanding="4" type="button">Good</button>
+                <button class="chip" data-understanding="5" type="button">Excellent</button>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">StudyMate AI · Focus on one thoughtful step at a time.</footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learning resources — StudyMate AI</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="index.html"><span class="brand-mark">S</span> StudyMate AI</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="planner.html">Planner</a>
+            <a href="progress.html">Progress</a><a href="focus.html">Focus</a><a href="resources.html" aria-current="page">Resources</a><a href="settings.html">Settings</a>
+        </div>
+    </nav>
+    <main class="container">
+        <header class="page-heading"><p class="eyebrow">Learn, practice, revisit</p><h1>Learning resources</h1><p>Keep useful materials next to the subjects and topics you’re working on.</p></header>
+        <section class="card form-card" aria-labelledby="resource-form-heading">
+            <h2 id="resource-form-heading">Save a resource</h2>
+            <form id="resource-form">
+                <div class="form-grid">
+                    <div><label for="resource-subject">Subject</label><input id="resource-subject" name="subject" list="resource-subject-options" placeholder="e.g. Biology" required><datalist id="resource-subject-options"></datalist></div>
+                    <div><label for="resource-topic">Topic</label><input id="resource-topic" name="topic" placeholder="e.g. Cell division" required></div>
+                    <div><label for="resource-difficulty">Difficulty</label><select id="resource-difficulty" name="difficulty"><option>Beginner</option><option selected>Intermediate</option><option>Advanced</option></select></div>
+                    <div><label for="resource-type">Resource type</label><select id="resource-type" name="type"><option>Video</option><option>Documentation</option><option>Notes</option><option>Practice</option><option>Quiz</option></select></div>
+                    <div><label for="resource-title">Title</label><input id="resource-title" name="title" placeholder="What is this resource?" required></div>
+                    <div><label for="resource-url">Link (optional)</label><input id="resource-url" name="url" type="url" placeholder="https://…"></div>
+                </div>
+                <button class="btn" type="submit">Save resource</button>
+            </form><p id="resource-message" class="inline-message" aria-live="polite"></p>
+        </section>
+        <section class="section-spaced">
+            <div class="section-title"><div><p class="eyebrow">Your learning library</p><h2>Saved resources</h2></div>
+                <div class="filter-row"><label class="visually-hidden" for="resource-filter">Filter by status</label><select id="resource-filter"><option value="all">All statuses</option><option>Not Started</option><option>In Progress</option><option>Completed</option></select></div>
+            </div>
+            <div id="resource-list" class="resource-grid"></div>
+        </section>
+    </main>
+    <footer class="footer">StudyMate AI · Save the resources that help you move forward.</footer>
+    <script src="script.js"></script>
+</body>
+</html>

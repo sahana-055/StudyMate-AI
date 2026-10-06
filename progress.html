@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Progress &amp; analytics — StudyMate AI</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" aria-label="Main navigation">
+        <a class="brand" href="index.html"><span class="brand-mark">S</span> StudyMate AI</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a><a href="dashboard.html">Dashboard</a><a href="planner.html">Planner</a>
+            <a href="progress.html" aria-current="page">Progress</a><a href="focus.html">Focus</a><a href="resources.html">Resources</a><a href="settings.html">Settings</a>
+        </div>
+    </nav>
+    <main class="container">
+        <header class="page-heading"><p class="eyebrow">Evidence of your effort</p><h1>Progress &amp; analytics</h1><p>Your study sessions, task completion, and quiz results in one place.</p></header>
+        <section id="progress-summary" class="card-container" aria-label="Study summary"></section>
+        <div class="dashboard-columns">
+            <section class="card"><div class="section-title section-title-compact"><h2>Study time by subject</h2></div><div id="subject-analytics" class="chart-list"></div></section>
+            <section class="card"><div class="section-title section-title-compact"><h2>Quiz performance by subject</h2></div><div id="quiz-analytics" class="chart-list"></div></section>
+        </div>
+        <div class="dashboard-columns section-spaced">
+            <section class="card"><div class="section-title section-title-compact"><h2>Weekly study hours</h2><span class="badge" id="weekly-goal-badge">0% of goal</span></div><div id="weekly-chart" class="weekly-chart" aria-label="Study hours for the last seven days"></div><p id="weekly-goal-caption" class="muted"></p></section>
+            <section class="card"><div class="section-title section-title-compact"><h2>Weak topics</h2><span class="badge">Based on your quizzes</span></div><div id="progress-weak-topics" class="stack-list"></div></section>
+        </div>
+        <section class="card form-card section-spaced" aria-labelledby="quiz-heading">
+            <p class="eyebrow">Use practice to adapt your plan</p><h2 id="quiz-heading">Record a quiz or test</h2>
+            <form id="quiz-form">
+                <div class="form-grid">
+                    <div><label for="quiz-subject">Subject</label><input id="quiz-subject" name="subject" list="quiz-subject-options" required><datalist id="quiz-subject-options"></datalist></div>
+                    <div><label for="quiz-topic">Topic</label><input id="quiz-topic" name="topic" required></div>
+                    <div><label for="quiz-score">Marks obtained</label><input id="quiz-score" name="score" type="number" min="0" step="any" required></div>
+                    <div><label for="quiz-total">Total marks</label><input id="quiz-total" name="total" type="number" min="0.01" step="any" required></div>
+                </div>
+                <button class="btn" type="submit">Save result</button>
+            </form><p id="quiz-message" class="inline-message" aria-live="polite"></p>
+        </section>
+        <section class="section-spaced"><div class="section-title"><h2>Recent activity</h2></div><div id="recent-activity" class="stack-list"></div></section>
+    </main>
+    <footer class="footer">StudyMate AI · Measure progress to guide your next step.</footer>
+    <script src="script.js"></script>
+</body>
+</html>
